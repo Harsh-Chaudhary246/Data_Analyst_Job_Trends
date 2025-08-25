@@ -53,7 +53,7 @@ df['job_skills'] = df['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.no
 To focus my analysis on the Indian job market, I apply filters to the dataset, narrowing down to roles based in the India.
 
 ```python
-df_US = df[df['job_country'] == 'India']
+df_IN = df[df['job_country'] == 'India']
 
 ```
 
@@ -107,7 +107,7 @@ View my notebook with detailed steps here: [3_Skills_Trend](3_Skills_Trend.ipynb
 
 from matplotlib.ticker import PercentFormatter
 
-df_plot = df_DA_US_percent.iloc[:, :5]
+df_plot = df_DA_IN_percent.iloc[:, :5]
 sns.lineplot(data=df_plot, dashes=False, legend='full', palette='tab10')
 
 plt.gca().yaxis.set_major_formatter(PercentFormatter(decimals=0))
@@ -139,9 +139,9 @@ View my notebook with detailed steps here: [4_Salary_Analysis](4_Salary_Analysis
 #### Visualize Data 
 
 ```python
-sns.boxplot(data=df_US_top6, x='salary_year_avg', y='job_title_short', order=job_order)
+sns.boxplot(data=df_IN_top6, x='salary_year_avg', y='job_title_short', order=job_order)
 
-ticks_x = plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
+ticks_x = plt.FuncFormatter(lambda y, pos: f'Rs.{int(y/10000)}L')
 plt.gca().xaxis.set_major_formatter(ticks_x)
 plt.show()
 
@@ -149,7 +149,7 @@ plt.show()
 
 #### Results
 
-![Salary Distributions of Data Jobs in the US](images/Salary_Distributions_of_Data_Jobs_in_the_India.png)  
+![Salary Distributions of Data Jobs in the India](images/Salary_Distributions_of_Data_Jobs_in_the_India.png)  
 *Box plot visualizing the salary distributions for the top 6 data job titles.*
 
 #### Insights
@@ -185,7 +185,7 @@ plt.show()
 #### Results
 Here's the breakdown of the highest-paid & most in-demand skills for data analysts in the India:
 
-![The Highest Paid & Most In-Demand Skills for Data Analysts in the US](images/Highest_Paid_and_Most_In_Demand_Skills_for_Data_Analysts_in_the_India.png)
+![The Highest Paid & Most In-Demand Skills for Data Analysts in the India](images/Highest_Paid_and_Most_In_Demand_Skills_for_Data_Analysts_in_the_India.png)
 *Two separate bar graphs visualizing the highest paid skills and most in-demand skills for data analysts in the India.*
 
 #### Insights:
@@ -249,7 +249,7 @@ plt.show()
 
 #### Results
 
-![Most Optimal Skills for Data Analysts in the US with Coloring by Technology](images/Most_Optimal_Skills_for_Data_Analysts_in_the_India_with_Coloring_by_Technology.png)  
+![Most Optimal Skills for Data Analysts in the India with Coloring by Technology](images/Most_Optimal_Skills_for_Data_Analysts_in_the_India_with_Coloring_by_Technology.png)  
 *A scatter plot visualizing the most optimal skills (high paying & high demand) for data analysts in the India with color labels for technology.*
 
 #### Insights:
